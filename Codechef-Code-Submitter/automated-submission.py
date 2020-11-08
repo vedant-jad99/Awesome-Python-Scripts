@@ -1,21 +1,26 @@
 from selenium import webdriver
 import getpass
 import time
+import os
 
 username = "username"
 password = getpass.getpass("Password:")
 
 problem = 'TEST'
 
-code = """
-#include <iostream>
+code = """ """
+# #include <iostream>
  
-int main(void) {
-char c, d=10;
-while(std::cin.get(c) && (c!='2' || d!='4') && std::cout.put(d))
-d=c;
-} 
-"""
+# int main(void) {
+# char c, d=10;
+# while(std::cin.get(c) && (c!='2' || d!='4') && std::cout.put(d))
+# d=c;
+# } 
+# """
+file = "" #Here we can give filename. Assumed that file is placed in the same directory as this script.
+with open(os.path.join(os.getcwd(), file)) as f:
+    for line in f:
+        code += line
 
 browser = webdriver.Firefox()
 
